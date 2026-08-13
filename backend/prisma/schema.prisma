@@ -11,3 +11,229 @@ generator client {
 datasource db {
   provider = "postgresql"
 }
+
+
+// ==========================================
+// ENUMS
+// ==========================================
+
+enum Role {
+  USER
+  ADMIN
+}
+
+enum VisibiliteProfile {
+  PUBLIC
+  GROUPES_SEULEMENT
+  PRIVE
+}
+
+enum NiveauContact {
+  PERSONNE
+  MEMBRES_DE_MES_GROUPES
+  TOUT_LE_MONDE
+}
+
+enum TypeActivitee {
+  EXERCICE
+  SOCIAL
+  TRAVAIL
+  MEDITATION
+  LOISIRS
+}
+
+enum TypeResource {
+  ARTICLE
+  EXERCICE
+  FICHE
+  LIEN
+
+}
+
+enum VisibiliteGroupe {
+  PUBLIC
+  PRIVE
+}
+
+enum GroupRole {
+  MEMBRE
+  MODERATEUR
+}
+
+enum StatutReqGroupe {
+  EN_ATTENTE
+  ACCEPTEE
+  REFUSEE
+}
+
+enum NiveauResource {
+  SIMPLE
+  INTERMIDIAIRE
+  COMPLEXE
+}
+
+// ==========================================
+// MODÈLES
+// ==========================================
+
+model User {
+  id                String            @id @default(uuid())
+  email             String            @unique
+  password          String
+  surnom            String?
+  nom               String?
+  avatar            String?
+  bio               String?
+  role              Role              @default(USER)
+  visibilite        VisibiliteProfile @default(PUBLIC)
+  niveauContact     NiveauContact     @default(TOUT_LE_MONDE)
+  createdAt         DateTime   @default(now())
+  updatedAt         DateTime   @updatedAt 
+
+  journalEntrees    JournalEntry[]
+  favoris           Favorite[]
+  membreGroupe      GroupMember[]
+  posts             Post[]
+  commentaires      Comment[]
+  messagesEnvoyees  Message[]         @relation("messagesEnvoyees")
+  messagesRecues    Message[]         @relation("messagesRecues")
+
+}
+
+
+model JournalEntry {
+  id          String            @id @default(uuid())
+  date        DateTime
+  humeur      Int
+  energie     Int
+  sommeil     Int
+  anxiete     Int
+  evenements  String?
+  gratitude   String?
+  createdAt DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+
+  userId      String
+  user        User              @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  activitees  JournalActivity[]
+
+  @@unique([userId, date])
+}
+
+model Activity {
+  id        String            @id @default(uuid())
+  nom       String            @unique
+  type      TypeActivitee
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+
+  entrees   JournalActivity[]
+}
+
+model JournalActivity {
+  createdAt    DateTime   @default(now())
+  updatedAt      DateTime   @updatedAt
+  journalEntryId String
+  journalEntry   JournalEntry @relation(fields: [journalEntryId], references: [id], onDelete: Cascade)
+  activityId     String
+  activity       Activity     @relation(fields: [activityId], references: [id], onDelete: Cascade)
+
+  @@id([journalEntryId, activityId])
+}
+
+model Resource {
+  id          String     @id @default(uuid())
+  titre       String
+  categorie   String
+  type        TypeResource
+  duree       Int
+  niveau      NiveauResource
+  contenu     String
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+  mesFavoris Favorite[]
+
+}
+
+model Favorite {
+  createdAt  DateTime   @default(now())
+  updatedAt  DateTime   @updatedAt
+  userId     String
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  resourceId String
+  resource   Resource @relation(fields: [resourceId], references: [id], onDelete: Cascade)
+
+  @@id([userId, resourceId])
+}
+
+model Group {
+  id          String          @id @default(uuid())
+  nom         String
+  thematique  String
+  description String
+  regles      String
+  visibilite  VisibiliteGroupe @default(PUBLIC)
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt  
+
+  membres     GroupMember[]
+  posts       Post[]
+}
+
+model GroupMember {
+  id        String          @id @default(uuid())
+  role      GroupRole       @default(MEMBRE)
+  statut    StatutReqGroupe @default(ACCEPTEE)
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+
+  groupId   String
+  group     Group         @relation(fields: [groupId], references: [id], onDelete: Cascade)
+  userId    String
+  user      User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([groupId, userId])
+}
+
+model Post {
+  id        String    @id @default(uuid())
+  contenu   String
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+
+  groupId   String
+  groupe    Group     @relation(fields: [groupId], references: [id], onDelete: Cascade)
+  userId    String
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  commentaires  Comment[]
+
+}
+
+model Comment {
+  id        String   @id @default(uuid())
+  contenu   String
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+
+  postId    String
+  post      Post     @relation(fields: [postId], references: [id], onDelete: Cascade)
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Message {
+  id             String   @id @default(uuid())
+  contenu        String
+  estLus         Boolean  @default(false)
+  createdAt      DateTime   @default(now())
+  updatedAt      DateTime   @updatedAt
+
+  expediteurId   String
+  expediteur     User     @relation("messagesEnvoyees", fields: [expediteurId], references: [id], onDelete: Cascade)
+  receveurId     String
+  receveur       User     @relation("messagesRecues", fields: [receveurId], references: [id], onDelete: Cascade)
+
+  @@index([expediteurId, receveurId])
+}
