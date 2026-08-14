@@ -85,3 +85,34 @@ export type Post = {
     user?: UserDetail;
     commentaires?: Comment[];
 };
+
+export type TypeResource = 'ARTICLE' | 'EXERCICE' | 'FICHE' | 'LIEN';
+export type NiveauResource = 'SIMPLE' | 'INTERMIDIAIRE' | 'COMPLEXE';
+
+export type Resource = {
+    id: string;
+    titre: string;
+    categorie: string;
+    type: TypeResource;
+    duree: number;
+    niveau: NiveauResource;
+    contenu: string;
+    createdAt: string;
+    updatedAt: string;
+};
+
+export type Favorite = {
+    userId: string;
+    resourceId: string;
+    createdAt: string;
+    updatedAt: string;
+};
+
+export type ResourceFilters = {
+    page?: number;
+    limit?: number;
+    recherche?: string;
+    categorie?: string;
+    type?: TypeResource;
+    niveau?: NiveauResource;
+};
