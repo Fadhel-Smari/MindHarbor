@@ -1,4 +1,220 @@
 /* ==========================================
+   STYLE POUR LA PAGE D'ACCUEIL (MindHarbor)
+   ========================================== */
+
+/* Structure générale */
+.page-conteneur {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: #2d3748;
+}
+
+/* Section Hero (Bannière d'en-tête) */
+.hero-section {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: linear-gradient(135deg, #e0f2fe 0%, #e0e7ff 100%);
+  border-radius: 16px;
+  margin-bottom: 3rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+/* ==========================================
+   Navigation Principale (Navbar)
+   ========================================== */
+.en-tete-navigation {
+  background-color: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+  padding: 1rem 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.en-tete-navigation nav {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1.5rem; /* Crée l'espace entre chaque lien */
+  flex-wrap: wrap;
+}
+
+.en-tete-navigation nav a {
+  color: #4a5568;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.en-tete-navigation nav a:hover {
+  color: #2563eb;
+  background-color: #f1f5f9;
+}
+
+/* Bouton Déconnexion dans la navbar */
+.bouton-lien {
+  background: none;
+  border: none;
+  color: #e53e3e;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.5rem 0.75rem;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.bouton-lien:hover {
+  background-color: #fff5f5;
+  color: #c53030;
+}
+
+.hero-section h1 {
+  font-size: 2.5rem;
+  color: #1e3a8a;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.hero-section p {
+  font-size: 1.2rem;
+  color: #475569;
+  max-width: 650px;
+  margin: 0 auto 2rem auto;
+  line-height: 1.6;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Boutons */
+.bouton-primaire {
+  background-color: #2563eb;
+  color: #ffffff;
+  padding: 0.8rem 1.6rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  display: inline-block;
+}
+
+.bouton-primaire:hover {
+  background-color: #1d4ed8;
+  transform: translateY(-1px);
+}
+
+.bouton-secondaire {
+  background-color: #ffffff;
+  color: #2563eb;
+  border: 2px solid #2563eb;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  display: inline-block;
+}
+
+.bouton-secondaire:hover {
+  background-color: #eff6ff;
+}
+
+/* Sections du contenu */
+.section-accueil {
+  margin-bottom: 3.5rem;
+}
+
+.section-accueil h2 {
+  font-size: 1.8rem;
+  color: #0f172a;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid #f1f5f9;
+  padding-bottom: 0.5rem;
+}
+
+/* Grille de cartes */
+.grille-cartes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Carte individuelle */
+.carte {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.carte:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.carte h3 {
+  font-size: 1.25rem;
+  color: #1e293b;
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+}
+
+.carte p {
+  color: #64748b;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Badge pour les thématiques */
+.badge {
+  align-self: flex-start;
+  background-color: #dbeafe;
+  color: #1e40af;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Liens "Voir plus" */
+.lien-voir-plus {
+  display: inline-block;
+  color: #2563eb;
+  font-weight: 600;
+  text-decoration: none;
+  margin-top: 0.5rem;
+  transition: color 0.2s ease;
+}
+
+.lien-voir-plus:hover {
+  color: #1d4ed8;
+  text-decoration: underline;
+}
+
+/* ==========================================
    Composant : IndicateurChargement
    ========================================== */
 .indicateur-chargement {
