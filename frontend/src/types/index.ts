@@ -1,3 +1,8 @@
+// 
+export type VisibiliteGroupe = 'PUBLIC' | 'PRIVE';
+export type GroupRole = 'MEMBRE' | 'MODERATEUR';
+export type StatutReqGroupe = 'EN_ATTENTE' | 'ACCEPTEE' | 'REFUSEE';
+
 export type Meta = {
     page: number;
     limit: number;
@@ -13,7 +18,7 @@ export type Paginated<T> = {
 export type JournalEntry = {
     id: string;
     userId: string;
-    date: string; // or Date if you parse it
+    date: string;
     mood: number;
     energy: number;
     sleep: number;
@@ -22,4 +27,61 @@ export type JournalEntry = {
     gratitude?: string;
     createdAt: string;
     updatedAt: string;
+};
+
+
+export type UserDetail = {
+    id: string;
+    nom: string | null;
+    surnom: string | null;
+    avatar: string | null;
+    bio?: string | null;
+};
+
+export type Group = {
+    id: string;
+    nom: string;
+    thematique: string;
+    description: string;
+    regles: string;
+    visibilite: VisibiliteGroupe;
+    createdAt: string;
+    updatedAt: string;
+    _count?: { membres: number };
+    nombreMembres?: number;
+    statutMembreVisiteur?: StatutReqGroupe | null;
+    roleMembreVisiteur?: GroupRole | null;
+    message?: string;
+};
+
+export type GroupMember = {
+    id: string;
+    role: GroupRole;
+    statut: StatutReqGroupe;
+    createdAt: string;
+    updatedAt: string;
+    groupId: string;
+    userId: string;
+    user?: UserDetail;
+};
+
+export type Comment = {
+    id: string;
+    contenu: string;
+    createdAt: string;
+    updatedAt: string;
+    postId: string;
+    userId: string;
+    user?: UserDetail;
+};
+
+export type Post = {
+    id: string;
+    contenu: string;
+    createdAt: string;
+    updatedAt: string;
+    groupId: string;
+    userId: string;
+    user?: UserDetail;
+    commentaires?: Comment[];
 };
