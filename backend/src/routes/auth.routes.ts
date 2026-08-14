@@ -53,3 +53,5 @@ router.get("/me", authentifier, async (req: Request, res: Response) => {
     if (!user) return res.status(404).json({ erreur: "Utilisateur introuvable" })
     res.json(user)
 });
+
+export default router;
