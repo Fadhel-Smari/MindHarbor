@@ -116,3 +116,14 @@ export type ResourceFilters = {
     type?: TypeResource;
     niveau?: NiveauResource;
 };
+
+export type RegisterCredentials = {
+  email: string;
+  password: string;
+  pseudo?: string;
+};
+
+export type LoginCredentials = {
+  email: string;
+  password: string;
+};
