@@ -6,6 +6,12 @@ import { Inscription } from './pages/Inscription';
 import { Connexion } from './pages/Connexion';
 
 
+
+const RoutePrivee: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  const { estConnecte } = useAuth();
+  return estConnecte ? <>{children}</> : <Navigate to="/connexion" replace />;
+};
+
 export const App: React.FC = () => {
   const { token, seDeconnecter } = useAuth();
 
@@ -43,6 +49,10 @@ export const App: React.FC = () => {
             <Route path="/" element={<Accueil />} />
             <Route path="/inscription" element={<Inscription />} />
             <Route path="/connexion" element={<Connexion />} />
+
+            {/* Routes Privee */}
+
+
             {/* Redirection si la route n'existe pas */}
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>

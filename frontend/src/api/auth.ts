@@ -1,9 +1,12 @@
 import { api } from './axios';
+import type { RegisterCredentials, LoginCredentials } from '../types';
 
-export async function registerUser(credentials: { email: string; password: string; pseudo?: string }) {
-  await api.post('/auth/register', credentials);
+export async function registerUser(credentials: RegisterCredentials) {
+  const { data } = await api.post('/auth/register', credentials);
+  return data;
 }
 
-export async function loginUser(credentials: { email: string; password: string }) {
-  await api.post('/auth/login', credentials);
+export async function loginUser(credentials: LoginCredentials) {
+  const { data } = await api.post('/auth/login', credentials);
+  return data; // <--- C'est LUI qui ramène le token à Connexion.tsx !
 }

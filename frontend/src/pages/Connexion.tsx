@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { useNavigate, Link, useLocation } from 'react-router-dom';
 import { loginUser } from '../api/auth';
+import { useAuth } from '../context/AuthContext';
 
 export const Connexion: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  const { seConnecter } = useAuth();
 
   const messageSucces = location.state?.message as string | undefined;
 
@@ -15,9 +17,16 @@ export const Connexion: React.FC = () => {
     e.preventDefault();
 
     try {
-      await loginUser({ email, password });
-      navigate('/dashboard');
-    } catch {
+      const response = await loginUser({ email, password }) as any;
+      
+      const token = response.token || response.accessToken || response;
+
+      if (token) {
+        seConnecter(token);
+        navigate('/dashboard');
+      }
+    } catch (err) {
+      console.error(err);
     }
   };
 
