@@ -822,3 +822,275 @@
     gap: 1.25rem;
   }
 }
+
+/* ==========================================
+   PAGE PROFIL
+   ========================================== */
+
+.page-conteneur .carte {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  padding: 2.5rem;
+  box-shadow: 0 10px 30px -5px rgba(15, 23, 42, 0.05);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.page-conteneur h1 {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.03em;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.carte h2 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #1e293b;
+  margin-top: 2rem;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #f1f5f9;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.carte h2:first-of-type {
+  margin-top: 0;
+}
+
+.carte .groupe-champ {
+  margin-bottom: 1.5rem;
+}
+
+.carte .etiquette-champ {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #475569;
+  margin-bottom: 0.5rem;
+}
+
+.carte .champ-saisie,
+.carte select.champ-saisie,
+.carte textarea.champ-saisie {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  font-size: 0.95rem;
+  color: #0f172a;
+  background-color: #f8fafc;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 12px;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+.carte textarea.champ-saisie {
+  min-height: 110px;
+  resize: vertical;
+}
+
+.carte .champ-saisie:focus,
+.carte select.champ-saisie:focus,
+.carte textarea.champ-saisie:focus {
+  outline: none;
+  background-color: #ffffff;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.15);
+}
+
+.carte select.champ-saisie {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%64748b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1.25em;
+  padding-right: 2.5rem;
+  cursor: pointer;
+}
+
+.carte .bouton-soumission {
+  width: 100%;
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 0.9rem 1.5rem;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.25);
+  margin-top: 1.5rem;
+}
+
+.carte .bouton-soumission:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.35);
+}
+
+.carte .bouton-soumission:active {
+  transform: translateY(0);
+}
+
+.carte .texte-succes {
+  background-color: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  color: #166534;
+  padding: 1rem 1.25rem;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.925rem;
+  margin-bottom: 1.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.carte .texte-succes::before {
+  content: "✓";
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  background-color: #22c55e;
+  color: #ffffff;
+  border-radius: 50%;
+  font-size: 0.75rem;
+  flex-shrink: 0;
+}
+
+.carte .separateur {
+  border: none;
+  border-top: 1px solid #f1f5f9;
+  margin: 2.5rem 0;
+}
+
+.carte .zone-danger {
+  background: linear-gradient(135deg, #f8fafc 0%, #eff6ff 100%);
+  border: 1px solid #dbeafe;
+  border-radius: 16px;
+  padding: 1.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.carte .zone-danger::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: #3b82f6;
+  border-top-left-radius: 16px;
+  border-bottom-left-radius: 16px;
+}
+
+.carte .zone-danger:hover {
+  border-color: #bfdbfe;
+  box-shadow: 0 8px 24px -4px rgba(59, 130, 246, 0.12);
+}
+
+.carte .zone-danger h3 {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #1e293b;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.carte .zone-danger h3::before {
+  content: "";
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  background-color: #2563eb;
+  mask: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpath d='M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z'%3e%3c/path%3e%3cpath d='m9 12 2 2 4-4'%3e%3c/path%3e%3c/svg%3e") no-repeat center / contain;
+  -webkit-mask: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpath d='M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z'%3e%3c/path%3e%3cpath d='m9 12 2 2 4-4'%3e%3c/path%3e%3c/svg%3e") no-repeat center / contain;
+  flex-shrink: 0;
+}
+
+.carte .bouton-secondaire {
+  background-color: #ffffff;
+  color: #1d4ed8;
+  border: 1px solid #bfdbfe;
+  padding: 0.8rem 1.4rem;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  white-space: nowrap;
+  box-shadow: 0 2px 6px rgba(37, 99, 235, 0.06);
+}
+
+.carte .bouton-secondaire::before {
+  content: "";
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  background-color: #1d4ed8;
+  mask: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpath d='M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4'%3e%3c/path%3e%3cpolyline points='7 10 12 15 17 10'%3e%3c/polyline%3e%3cline x1='12' y1='15' x2='12' y2='3'%3e%3c/line%3e%3c/svg%3e") no-repeat center / contain;
+  -webkit-mask: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpath d='M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4'%3e%3c/path%3e%3cpolyline points='7 10 12 15 17 10'%3e%3c/polyline%3e%3cline x1='12' y1='15' x2='12' y2='3'%3e%3c/line%3e%3c/svg%3e") no-repeat center / contain;
+  transition: transform 0.2s ease, background-color 0.25s ease;
+}
+
+.carte .bouton-secondaire:hover {
+  background-color: #2563eb;
+  color: #ffffff;
+  border-color: #2563eb;
+  box-shadow: 0 6px 16px rgba(37, 99, 235, 0.25);
+  transform: translateY(-2px);
+}
+
+.carte .bouton-secondaire:hover::before {
+  background-color: #ffffff;
+  transform: translateY(2px);
+}
+
+.carte .bouton-secondaire:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 640px) {
+  .carte .zone-danger {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+    gap: 1.25rem;
+    padding: 1.5rem;
+  }
+
+  .carte .zone-danger::before {
+    width: 100%;
+    height: 4px;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 16px;
+  }
+
+  .carte .zone-danger h3 {
+    justify-content: center;
+  }
+
+  .carte .bouton-secondaire {
+    width: 100%;
+  }
+}
