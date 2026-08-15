@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { registerUser } from '../api/auth';
 import { AxiosError } from 'axios';
+import { AideUrgence } from '../components/AideUrgence';
 
 export const Inscription: React.FC = () => {
   const navigate = useNavigate();
@@ -104,6 +105,8 @@ export const Inscription: React.FC = () => {
           </Link>
         </div>
       </div>
+
+      <AideUrgence />
     </div>
   );
 };

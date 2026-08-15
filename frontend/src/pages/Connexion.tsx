@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate, Link, useLocation } from 'react-router-dom';
 import { loginUser } from '../api/auth';
 import { useAuth } from '../context/AuthContext';
+import { AideUrgence } from '../components/AideUrgence';
 
 export const Connexion: React.FC = () => {
   const navigate = useNavigate();
@@ -85,6 +86,8 @@ export const Connexion: React.FC = () => {
           </Link>
         </div>
       </div>
+
+      <AideUrgence />
     </div>
   );
 };
