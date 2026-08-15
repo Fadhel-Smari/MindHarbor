@@ -7,6 +7,7 @@ import { Connexion } from './pages/Connexion';
 import { Journal } from './pages/Journal';
 import { TableauDeBord } from './pages/TableauDeBord';
 import { Profil } from './pages/Profil';
+import { Groupes } from './pages/Groupes';
 
 const RoutePrivee: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const { estConnecte } = useAuth();
@@ -73,6 +74,14 @@ export const App: React.FC = () => {
               element={
                 <RoutePrivee>
                   <Profil />
+                </RoutePrivee>
+              }
+            />
+            <Route
+              path="/groupes"
+              element={
+                <RoutePrivee>
+                  <Groupes />
                 </RoutePrivee>
               }
             />
