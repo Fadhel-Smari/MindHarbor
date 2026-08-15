@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route, Navigate, Link } from 'react-router-dom';
 import { useAuth } from './context/AuthContext';
-
 import { Accueil } from './pages/Accueil';
-
+import { Inscription } from './pages/Inscription';
+import { Connexion } from './pages/Connexion';
 
 
 export const App: React.FC = () => {
@@ -41,7 +41,8 @@ export const App: React.FC = () => {
           <Routes>
             {/* Routes Publiques */}
             <Route path="/" element={<Accueil />} />
-
+            <Route path="/inscription" element={<Inscription />} />
+            <Route path="/connexion" element={<Connexion />} />
             {/* Redirection si la route n'existe pas */}
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
