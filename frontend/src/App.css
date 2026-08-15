@@ -526,3 +526,156 @@
   font-size: 0.875rem;
   margin-bottom: 1.25rem;
 }
+
+/* ==========================================
+   Pages Journal
+   ========================================== */
+
+.journal-grille-metriques {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.journal-avis-edition {
+  background-color: #eff6ff;
+  border: 1px solid #bfdbfe;
+  color: #1e40af;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  margin-bottom: 1.25rem;
+}
+
+.journal-section-activites {
+  margin-top: 1.5rem;
+}
+
+.journal-section-activites > .etiquette-champ {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.journal-selection-controles {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: flex-end;
+}
+
+.journal-champ-mini {
+  flex: 1;
+  min-width: 140px;
+}
+
+.journal-champ-mini--activite {
+  flex: 2;
+  min-width: 180px;
+}
+
+.journal-champ-mini-etiquette {
+  font-size: 0.8rem;
+  color: #64748b;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.journal-champ-mini select.champ-saisie {
+  width: 100%;
+  margin: 0;
+}
+
+.journal-bouton-ajouter {
+  padding: 0.65rem 1.5rem;
+  white-space: nowrap;
+  height: 42px;
+}
+
+.journal-badges-liste {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.journal-badge-activite {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  background: #e0e7ff;
+  color: #3730a3;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-weight: 600;
+}
+
+.journal-badge-activite-type {
+  opacity: 0.7;
+  text-transform: uppercase;
+}
+
+.journal-badge-supprimer {
+  background: none;
+  border: none;
+  color: #e53e3e;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 0 2px;
+}
+
+.journal-entree-en-tete {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.journal-entree-stats {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.journal-stat {
+  font-size: 0.85rem;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.journal-stat--humeur { background: #e0f2fe; }
+.journal-stat--energie { background: #fef3c7; }
+.journal-stat--sommeil { background: #e0e7ff; }
+.journal-stat--anxiete { background: #fee2e2; }
+
+.journal-entree-activites {
+  display: flex;
+  gap: 0.25rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.75rem;
+}
+
+.journal-tag-activite {
+  font-size: 0.75rem;
+  background: #dbeafe;
+  color: #1e40af;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-weight: 600;
+}
+
+.journal-tag-activite-type {
+  opacity: 0.8;
+  margin-right: 4px;
+}
+
+.journal-entree-texte {
+  color: #475569;
+  margin-bottom: 0.5rem;
+  white-space: pre-wrap;
+}
+
+.journal-entree-texte:last-child {
+  margin-bottom: 0;
+}

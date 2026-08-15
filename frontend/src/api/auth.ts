@@ -8,5 +8,5 @@ export async function registerUser(credentials: RegisterCredentials) {
 
 export async function loginUser(credentials: LoginCredentials) {
   const { data } = await api.post('/auth/login', credentials);
-  return data; // <--- C'est LUI qui ramène le token à Connexion.tsx !
+  return data;
 }

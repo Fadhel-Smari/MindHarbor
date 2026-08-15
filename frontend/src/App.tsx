@@ -4,7 +4,7 @@ import { useAuth } from './context/AuthContext';
 import { Accueil } from './pages/Accueil';
 import { Inscription } from './pages/Inscription';
 import { Connexion } from './pages/Connexion';
-
+import { Journal } from './pages/Journal';
 
 
 const RoutePrivee: React.FC<{ children: React.ReactNode }> = ({ children }) => {
@@ -51,7 +51,14 @@ export const App: React.FC = () => {
             <Route path="/connexion" element={<Connexion />} />
 
             {/* Routes Privee */}
-
+            <Route
+              path="/journal"
+              element={
+                <RoutePrivee>
+                  <Journal />
+                </RoutePrivee>
+              }
+            />
 
             {/* Redirection si la route n'existe pas */}
             <Route path="*" element={<Navigate to="/" replace />} />

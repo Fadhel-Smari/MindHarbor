@@ -1,7 +1,7 @@
-// 
 export type VisibiliteGroupe = 'PUBLIC' | 'PRIVE';
 export type GroupRole = 'MEMBRE' | 'MODERATEUR';
 export type StatutReqGroupe = 'EN_ATTENTE' | 'ACCEPTEE' | 'REFUSEE';
+export type TypeActivitee = 'EXERCICE' | 'SOCIAL' | 'TRAVAIL' | 'MEDITATION' | 'LOISIRS';
 
 export type Meta = {
     page: number;
@@ -15,18 +15,26 @@ export type Paginated<T> = {
     meta: Meta;
 };
 
+export type JournalActivity = {
+  id: string;
+  journalId: string;
+  type: TypeActivitee;
+  nom: string;
+};
+
 export type JournalEntry = {
-    id: string;
-    userId: string;
-    date: string;
-    mood: number;
-    energy: number;
-    sleep: number;
-    anxiety: number;
-    events?: string;
-    gratitude?: string;
-    createdAt: string;
-    updatedAt: string;
+  id: string;
+  userId: string;
+  date: string;
+  humeur: number;
+  energie: number;
+  sommeil: number;
+  anxiete: number;
+  evenements?: string;
+  gratitude?: string;
+  createdAt: string;
+  updatedAt: string;
+  activitees?: JournalActivity[];
 };
 
 
