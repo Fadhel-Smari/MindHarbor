@@ -679,3 +679,146 @@
 .journal-entree-texte:last-child {
   margin-bottom: 0;
 }
+
+/* ==========================================
+   TABLEAU DE BORD
+   ========================================== */
+
+.tableau-bord-grille {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.75rem;
+  margin-top: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.carte-statut-journal {
+  background: linear-gradient(to bottom right, #ffffff, #f8fafc);
+  border-left: 5px solid #2563eb;
+}
+
+.carte-statut-journal h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #1e3a8a;
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+}
+
+.carte-statut-journal p {
+  font-size: 1rem;
+  color: #475569;
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+}
+
+.texte-succes {
+  color: #15803d;
+  background-color: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  padding: 0.85rem 1rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+.carte-suggestion {
+  background: linear-gradient(to bottom right, #ffffff, #faf5ff);
+  border-left: 5px solid #9333ea;
+  position: relative;
+}
+
+.carte-suggestion h3 {
+  color: #581c87;
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.carte-suggestion h4 {
+  font-size: 1.1rem;
+  color: #1e293b;
+  margin: 0.5rem 0;
+  font-weight: 700;
+}
+
+.carte-suggestion .badge {
+  background-color: #f3e8ff;
+  color: #6b21a8;
+  border: 1px solid #e9d5ff;
+}
+
+.carte-suggestion p {
+  color: #475569;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-bottom: 1.25rem;
+}
+
+.lien-accent {
+  display: inline-flex;
+  align-items: center;
+  color: #9333ea;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: transform 0.2s ease, color 0.2s ease;
+  margin-top: auto;
+}
+
+.lien-accent:hover {
+  color: #7e22ce;
+  transform: translateX(4px);
+}
+
+.carte-resume {
+  background: linear-gradient(to bottom right, #ffffff, #f0f9ff);
+  border-left: 5px solid #0284c7;
+}
+
+.carte-resume h3 {
+  color: #0369a1;
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.liste-liens-rapides {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.liste-liens-rapides li a {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  background-color: #ffffff;
+  color: #334155;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
+  transition: all 0.2s ease;
+}
+
+.liste-liens-rapides li a:hover {
+  background-color: #e0f2fe;
+  color: #0284c7;
+  border-color: #bae6fd;
+  transform: translateX(4px);
+}
+
+@media (max-width: 640px) {
+  .tableau-bord-grille {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+}
