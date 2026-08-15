@@ -5,7 +5,7 @@ import { Accueil } from './pages/Accueil';
 import { Inscription } from './pages/Inscription';
 import { Connexion } from './pages/Connexion';
 import { Journal } from './pages/Journal';
-
+import { TableauDeBord } from './pages/TableauDeBord';
 
 const RoutePrivee: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const { estConnecte } = useAuth();
@@ -56,6 +56,14 @@ export const App: React.FC = () => {
               element={
                 <RoutePrivee>
                   <Journal />
+                </RoutePrivee>
+              }
+            />
+            <Route
+              path="/dashboard"
+              element={
+                <RoutePrivee>
+                  <TableauDeBord />
                 </RoutePrivee>
               }
             />
